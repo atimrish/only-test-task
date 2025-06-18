@@ -5,7 +5,7 @@
 		padding: 0;
 	}
 
-	@media screen and (min-width: 1440px) {
+	@media screen and (min-width: vars.$break-point-desktop) {
 		&_desktop_padding {
 			position: relative;
 			padding: 0 160px 0 320px;
@@ -26,7 +26,7 @@
 	&_heading_block {
 		position: relative;
 
-		@media screen and (min-width: 1440px) {
+		@media screen and (min-width: vars.$break-point-desktop) {
 			&::before {
 				content: "";
 				position: absolute;
@@ -50,7 +50,7 @@
 		padding: 59px 0 0 0;
 		position: relative;
 
-		@media screen and (min-width: 1440px) {
+		@media screen and (min-width: vars.$break-point-desktop) {
 			&::before {
 				content: "";
 				position: absolute;
@@ -109,7 +109,7 @@
 				opacity: 0.1;
 			}
 
-			@media screen and (min-width: 1440px) {
+			@media screen and (min-width: vars.$break-point-desktop) {
 				&::before {
 					content: "";
 					position: absolute;

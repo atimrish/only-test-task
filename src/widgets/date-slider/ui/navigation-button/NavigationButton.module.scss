@@ -9,6 +9,7 @@
 	background-color: transparent;
 	display: grid;
 	place-items: center;
+	cursor: pointer;
 
 	& > svg {
 		height: clamp(8px, 0.83vw, 16px);

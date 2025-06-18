@@ -1,6 +1,25 @@
 @use "../../../../variables.module.scss" as vars;
 
 .slider {
+	&_desktop {
+		display: none;
+		margin-bottom: 80px;
+	}
+
+	&_mobile {
+		display: block;
+	}
+
+	@media screen and (min-width: vars.$break-point-desktop) {
+		&_desktop {
+			display: block;
+		}
+
+		&_mobile {
+			display: none;
+		}
+	}
+
 	&_controls {
 		display: flex;
 		align-items: center;
@@ -14,7 +33,7 @@
 				font-family: vars.$pt-sans-regular-font, sans-serif;
 				font-size: 14px;
 				font-weight: 400;
-				margin-bottom: 10px;
+				margin-bottom: clamp(10px, 1.875vw, 36px);
 			}
 
 			&_hidden {
@@ -23,7 +42,7 @@
 
 			&_buttons {
 				display: flex;
-				gap: 8px;
+				gap: clamp(8px, 1.25vw, 24px);
 
 				& > * {
 					flex-shrink: 0;

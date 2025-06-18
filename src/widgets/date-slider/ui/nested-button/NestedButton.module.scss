@@ -1,0 +1,31 @@
+@use "../../../../variables.module.scss" as vars;
+
+.button {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	box-shadow: 0px 0px 15px 0px #3877ee1a;
+	border: none;
+	background-color: vars.$white;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+
+	& svg {
+        width: 6px;
+
+		& path {
+			stroke: vars.$blue;
+		}
+	}
+
+	&[data-variant="next"] {
+		& svg {
+			transform: rotate(180deg);
+		}
+	}
+
+    &:disabled {
+        display: none;
+    }
+}
