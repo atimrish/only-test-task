@@ -5,15 +5,19 @@ import {gsap} from "gsap";
 import {Ref, SetStateAction, useState} from "react";
 import {EffectFade, Navigation, Pagination} from "swiper/modules";
 import {Swiper, SwiperRef, SwiperSlide} from "swiper/react";
-import {SliderDatesWidgetProps} from "../../model";
-import {NestedSlider} from "../nested-slider/NestedSlider";
+import {SliderDatesWidgetProps} from "@src/widgets/date-slider/model";
+import {NestedSlider} from "@src/widgets/date-slider/ui/nested-slider/NestedSlider";
 import * as s from "./Slider.module.scss";
+
+const SLIDE_FADE_DURATION = 1.5;
+const SLIDE_FADE_START_Y = 40;
+const SLIDE_FADE_END_Y = 0;
 
 export const Slider = (
 	p: SliderDatesWidgetProps & {
 		ref?: Ref<SwiperRef>;
-		activeIndex: number,
-		setActiveIndex: React.Dispatch<SetStateAction<number>>
+		activeIndex: number;
+		setActiveIndex: React.Dispatch<SetStateAction<number>>;
 	}
 ) => {
 	const [countSlides, setCountSlides] = useState(0);
@@ -53,9 +57,11 @@ export const Slider = (
 				modules={[Pagination, Navigation, EffectFade]}
 				allowTouchMove={false}
 				effect="fade"
+				preventInteractionOnTransition={true}
 				fadeEffect={{
 					crossFade: true,
 				}}
+				speed={500}
 				pagination={{
 					clickable: true,
 					renderBullet: (_, className) => `<span class=${className}></span>`,
@@ -70,17 +76,14 @@ export const Slider = (
 				onSlideChange={(swiper) => {
 					gsap.fromTo(
 						swiper.slides[swiper.activeIndex],
-						{
-							opacity: 0,
-							y: 40,
-						},
-						{y: 0, opacity: 1, duration: 1.5}
+						{opacity: 0, y: SLIDE_FADE_START_Y},
+						{opacity: 1, y: SLIDE_FADE_END_Y, duration: SLIDE_FADE_DURATION}
 					);
 
 					p.setActiveIndex(swiper.activeIndex);
 				}}>
-				{p.slides.map((slide) => (
-					<SwiperSlide>
+				{p.slides.map((slide, index) => (
+					<SwiperSlide key={index}>
 						<NestedSlider {...slide} />
 					</SwiperSlide>
 				))}

@@ -7,15 +7,21 @@ import {debounce} from "@src/shared/lib/debounce";
 import {Navigation} from "swiper/modules";
 import {NestedButton} from "../nested-button";
 
+const MOBILE_SLIDES_PER_VIEW = 1.5
+const DESKTOP_SLIDES_PER_VIEW = 3
+const DESKTOP_BREAK_POINT = 1240
+
+//специально вынес в отдельную функцию, чтобы при каждом рендере внутри useState она не срабатывала
 const getSlidesPerView = () => {
 	const width = document.body.getBoundingClientRect().width;
-	return width < 1440 ? 1.5 : 3;
+	return width < DESKTOP_BREAK_POINT ? MOBILE_SLIDES_PER_VIEW : DESKTOP_SLIDES_PER_VIEW;
 };
 
 export const NestedSlider = (p: SliderDatesSlide) => {
 	const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView);
 
 	useEffect(() => {
+		//дебаунсим коллбек resize observer ради повышения перфоманса
 		const bodyWidthChecker = debounce(() => setSlidesPerView(getSlidesPerView()), 200);
 		const observer = new ResizeObserver(() => bodyWidthChecker());
 		observer.observe(document.body);
@@ -41,8 +47,8 @@ export const NestedSlider = (p: SliderDatesSlide) => {
 					prevEl: "." + s.nested_controls_prev,
 					nextEl: "." + s.nested_controls_next,
 				}}>
-				{p.nestedSlides.map((slide) => (
-					<SwiperSlide>
+				{p.nestedSlides.map((slide, index) => (
+					<SwiperSlide key={index}>
 						<div className={s.nested_slide}>
 							<h3 className={s.year}>{slide.year}</h3>
 							<div className={s.paragraph}>{slide.paragraph}</div>

@@ -3,7 +3,7 @@
 .slider {
 	&_desktop {
 		display: none;
-		margin-bottom: 80px;
+		margin-bottom: 60px;
 	}
 
 	&_mobile {
@@ -70,6 +70,7 @@
 				height: 6px;
 				border-radius: 50%;
 				display: block;
+				cursor: pointer;
 
 				&_active {
 					opacity: 1;

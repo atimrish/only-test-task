@@ -1,10 +1,17 @@
 import {Wrapper} from "@src/shared/ui/wrapper";
 import * as s from "./MainContainer.module.scss";
 import {Slider as DateSlider} from "@src/widgets/date-slider/ui/slider";
-import {SliderDatesWidgetProps} from "../../model";
+import {SliderDatesWidgetProps} from "@src/widgets/date-slider/model";
 import {useEffect, useRef, useState} from "react";
 import {gsap} from "gsap";
 import {SwiperRef} from "swiper/react";
+
+//swiper css
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/effect-fade";
 
 const CIRCLE_RADIUS = 530 / 2;
 const POINT_RADIUS = 56 / 2;
@@ -34,6 +41,7 @@ export const MainContainer = (p: SliderDatesWidgetProps) => {
 			const children = circleRef.current.children;
 
 			Array.from(children).forEach((el, index) => {
+				//распределяем по кругу
 				const radians = (ANGLE * index * Math.PI) / 180;
 				const x = Math.cos(radians) * CIRCLE_RADIUS + CIRCLE_RADIUS - POINT_RADIUS;
 				const y = Math.sin(radians) * CIRCLE_RADIUS + CIRCLE_RADIUS - POINT_RADIUS;
@@ -54,6 +62,7 @@ export const MainContainer = (p: SliderDatesWidgetProps) => {
 			});
 		}
 		if (datesRef.current) {
+			//анимируем переходы дат
 			const startEl = datesRef.current.children[0];
 			const endEl = datesRef.current.children[1];
 
@@ -81,6 +90,7 @@ export const MainContainer = (p: SliderDatesWidgetProps) => {
 				}
 			);
 
+			//сохраняем прошлые значения для следующей анимации
 			previousDatesRef.current.start = currentNestedSlide[0].year;
 			previousDatesRef.current.end = currentNestedSlide[currentNestedSlide.length - 1].year;
 		}
@@ -107,7 +117,7 @@ export const MainContainer = (p: SliderDatesWidgetProps) => {
 						<div className={s.main_dates_container_circle_opacity}></div>
 						<div className={s.main_dates_container_circle_points} ref={circleRef}>
 							{p.slides.map((slide, index) => (
-								<div className={s.main_dates_container_circle_points_point}>
+								<div className={s.main_dates_container_circle_points_point} key={index}>
 									<div
 										className={s.main_dates_container_circle_points_point_hidden}
 										data-active={index === activeIndex}

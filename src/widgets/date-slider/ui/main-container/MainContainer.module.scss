@@ -86,7 +86,7 @@
 		gap: clamp(36px, 5vw, 96px);
 		font-size: clamp(56px, 10.41vw, 200px);
 		font-weight: 700;
-		font-family: vars.$pt-sans-regular-font, sans-serif;
+		font-family: vars.$pt-sans-bold-font, sans-serif;
 		letter-spacing: -2%;
 		margin: 56px 0;
 
@@ -175,6 +175,8 @@
 
 							&[data-active="true"] > &_title {
 								display: block;
+								word-break: keep-all;
+								white-space: nowrap;
 							}
 						}
 
