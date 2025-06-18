@@ -1,0 +1,61 @@
+@use "../../../../variables.module.scss" as vars;
+
+.slider {
+	&_controls {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		&_left {
+			content: "";
+
+			&_page_index {
+				color: vars.$black-blue;
+				font-family: vars.$pt-sans-regular-font, sans-serif;
+				font-size: 14px;
+				font-weight: 400;
+				margin-bottom: 10px;
+			}
+
+			&_hidden {
+				visibility: hidden;
+			}
+
+			&_buttons {
+				display: flex;
+				gap: 8px;
+
+				& > * {
+					flex-shrink: 0;
+				}
+
+				&_prev {
+					content: "";
+				}
+
+				&_next {
+					content: "";
+				}
+			}
+		}
+
+		&_pagination {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+
+			&_bullet {
+				background-color: vars.$black-blue;
+				opacity: 0.4;
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				display: block;
+
+				&_active {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

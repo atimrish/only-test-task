@@ -21,6 +21,7 @@
   "homepage": "https://github.com/atimrish/only-test-task#readme",
   "description": "",
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^24.0.3",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -40,7 +41,9 @@
     "webpack-dev-server": "^5.2.2"
   },
   "dependencies": {
+    "gsap": "^3.13.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "swiper": "^11.2.8"
   }
 }

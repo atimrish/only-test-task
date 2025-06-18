@@ -1,0 +1,141 @@
+@use "../../../variables.module.scss" as vars;
+
+.main {
+	&_desktop_padding {
+		padding: 0;
+	}
+
+	@media screen and (min-width: 1440px) {
+		&_desktop_padding {
+			position: relative;
+			padding: 0 160px 0 320px;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 1px;
+				height: 100vh;
+				background-color: vars.$black-blue;
+				opacity: 0.1;
+			}
+		}
+	}
+
+	&_heading_block {
+		position: relative;
+
+		@media screen and (min-width: 1440px) {
+			&::before {
+				content: "";
+				position: absolute;
+				height: 100%;
+				width: 6px;
+				background-image: linear-gradient(vars.$blue, vars.$main-pink);
+			}
+		}
+	}
+
+	&_heading {
+		font-family: vars.$pt-sans-bold-font, sans-serif;
+		font-weight: 700;
+		font-size: clamp(20px, 6vw, 56px);
+		line-height: 120%;
+		color: vars.$black-blue;
+		width: clamp(123px, 25vw, 360px);
+	}
+
+	&_container {
+		padding: 59px 0 0 0;
+		position: relative;
+
+		@media screen and (min-width: 1440px) {
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 1px;
+				height: 100vh;
+				background-color: vars.$black-blue;
+				opacity: 0.1;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 1px;
+				height: 100vh;
+				background-color: vars.$black-blue;
+				opacity: 0.1;
+			}
+		}
+	}
+
+	&_dates {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: clamp(36px, 5vw, 96px);
+		font-size: clamp(56px, 10.41vw, 200px);
+		font-weight: 700;
+		font-family: vars.$pt-sans-regular-font, sans-serif;
+		letter-spacing: -2%;
+		margin: 56px 0;
+
+		& > *:first-child {
+			color: vars.$main-blue;
+		}
+
+		& > *:last-child {
+			color: vars.$main-pink;
+		}
+
+		&_container {
+			position: relative;
+
+			&_circle {
+				display: none;
+				position: absolute;
+				width: 530px;
+				height: 530px;
+				border-radius: 50%;
+				border: 1px solid vars.$black-blue;
+				top: calc(50% - 530px / 2);
+				left: calc(50% - 530px / 2);
+				opacity: 0.1;
+			}
+
+			@media screen and (min-width: 1440px) {
+				&::before {
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background-color: vars.$black-blue;
+					opacity: 0.1;
+				}
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: -50vh;
+					left: 50%;
+					width: 1px;
+					height: 200vh;
+					background-color: vars.$black-blue;
+					opacity: 0.1;
+				}
+
+				&_circle {
+					display: block;
+				}
+			}
+		}
+	}
+}

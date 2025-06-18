@@ -1,0 +1,1 @@
+export {MainContainer as SliderDatesWidget} from './main-container/MainContainer'

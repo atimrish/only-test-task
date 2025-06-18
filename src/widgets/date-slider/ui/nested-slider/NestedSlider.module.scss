@@ -1,0 +1,40 @@
+@use "../../../../variables.module.scss" as vars;
+
+.hr {
+	color: #c7cdd9;
+	height: 1px;
+	margin-bottom: 20px;
+}
+
+.year {
+	font-family: vars.$bebas-neue-regular-font, sans-serif;
+	color: vars.$main-blue;
+	font-size: 16px;
+	font-weight: 400;
+	text-transform: uppercase;
+	line-height: 120%;
+	margin-bottom: 15px;
+}
+
+.paragraph {
+	font-family: vars.$pt-sans-regular-font, sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 145%;
+	color: vars.$black-blue;
+    height: 80px;
+}
+
+.nested {
+	min-height: 200px;
+}
+
+.heading {
+	font-family: vars.$pt-sans-bold-font, sans-serif;
+	font-weight: 700;
+	font-size: clamp(20px, 6vw, 56px);
+	line-height: 120%;
+	color: vars.$black-blue;
+	width: clamp(123px, 25vw, 360px);
+    margin-bottom: 20px;
+}

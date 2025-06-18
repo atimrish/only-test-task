@@ -20,7 +20,7 @@ export default (env: WebpackEnv): webpack.Configuration => {
 		module: {
 			rules: [
 				{
-					test: /\.s[ac]ss$/,
+					test: /\.module.s[ac]ss$/,
 					use: [
 						MiniCssExtractPlugin.loader,
 						{
@@ -34,12 +34,28 @@ export default (env: WebpackEnv): webpack.Configuration => {
 					],
 				},
 				{
+					test: /\.css$/,
+					use: [MiniCssExtractPlugin.loader, "css-loader"],
+				},
+				{
 					test: /\.tsx?$/,
 					use: "ts-loader",
 					exclude: /node_modules/,
 				},
 				{
-					test: /\.(png|svg|jpg|jpeg|gif)$/i,
+					test: /\.svg$/i,
+					issuer: /\.[jt]sx?$/,
+					use: [
+						{
+							loader: "@svgr/webpack",
+							options: {
+								icon: true,
+							},
+						},
+					],
+				},
+				{
+					test: /\.(png|jpg|jpeg|gif)$/i,
 					type: "asset/resource",
 				},
 			],

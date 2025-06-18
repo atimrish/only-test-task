@@ -1,0 +1,30 @@
+@use './variables.module.scss' as vars;
+
+@font-face {
+	font-family: "PT Sans Bold";
+	src: url(./shared/ui/assets/fonts/PTSans-Bold.ttf);
+}
+
+@font-face {
+	font-family: "PT Sans Regular";
+	src: url(./shared/ui/assets/fonts/PTSans-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Bebas Neue Regular";
+	src: url(./shared/ui/assets/fonts/BebasNeue-Regular.ttf);
+}
+
+:global *,
+:global *::before,
+:global *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:global body {
+	margin: 0;
+	padding: 0;
+	background-color: vars.$white;
+}
