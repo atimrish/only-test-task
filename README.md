@@ -29,7 +29,12 @@ npm i
 ```bash
 npm run serve
 ```
-4. Открыть localhost:8000 в браузере
+4. Открыть [localhost:8000](http://localhost:8000) в браузере
+
+5. Также, при желании, можно передать кастомный порт
+```bash
+npm run serve -- --env port=8001
+``` 
 
 ## Оптимизации
 - Аппаратное ускорение анимаций (will-change, transform, transition)
@@ -37,4 +42,5 @@ npm run serve
 
 ## Структура Feature-Sliced Design
 
-Для удобства файл с содержимым слайдов находится по пути: @src/pages/main-page/config/slides.ts
+Для удобства файл с содержимым слайдов находится по пути: `@src/pages/main-page/config/slides.ts`
+
