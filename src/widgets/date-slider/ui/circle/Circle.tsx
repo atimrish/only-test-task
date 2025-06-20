@@ -1,7 +1,7 @@
-import { CIRCLE_MOVE_DURATION, CIRCLE_RADIUS, POINT_RADIUS } from "@src/widgets/date-slider/config";
-import { SliderDatesSlide } from "@src/widgets/date-slider/model";
-import { gsap } from "gsap";
-import { SetStateAction, useEffect, useRef } from "react";
+import {CIRCLE_MOVE_DURATION, CIRCLE_RADIUS, POINT_RADIUS} from "@src/widgets/date-slider/config";
+import {SliderDatesSlide} from "@src/widgets/date-slider/model";
+import {gsap} from "gsap";
+import {SetStateAction, useEffect, useRef} from "react";
 import * as s from "./Circle.module.scss";
 
 type CircleProps = {
@@ -12,7 +12,6 @@ type CircleProps = {
 
 export const Circle = (p: CircleProps) => {
 	const ANGLE = 360 / p.slides.length;
-
 	const circleRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
