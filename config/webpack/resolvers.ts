@@ -5,5 +5,6 @@ export const webpackResolvers: Configuration["resolve"] = {
 	extensions: [".ts", ".tsx", ".js"],
 	alias: {
 		"@src": path.resolve("src"),
+		"@styles": path.resolve("src/app/styles"),
 	},
 };

@@ -1,18 +1,18 @@
-@use './variables.module.scss' as vars;
+@use '~@styles/_functions.module.scss' as fns;
 
 @font-face {
 	font-family: "PT Sans Bold";
-	src: url(./shared/ui/assets/fonts/PTSans-Bold.ttf);
+	src: url(~@src/shared/ui/assets/fonts/PTSans-Bold.ttf);
 }
 
 @font-face {
 	font-family: "PT Sans Regular";
-	src: url(./shared/ui/assets/fonts/PTSans-Regular.ttf);
+	src: url(~@src/shared/ui/assets/fonts/PTSans-Regular.ttf);
 }
 
 @font-face {
 	font-family: "Bebas Neue Regular";
-	src: url(./shared/ui/assets/fonts/BebasNeue-Regular.ttf);
+	src: url(~@src/shared/ui/assets/fonts/BebasNeue-Regular.ttf);
 }
 
 :global *,
@@ -24,5 +24,5 @@
 }
 
 :global body {
-	background-color: vars.$white;
+	background-color: fns.color('white');
 }

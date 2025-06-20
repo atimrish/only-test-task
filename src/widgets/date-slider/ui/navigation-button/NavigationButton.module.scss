@@ -1,11 +1,11 @@
-@use "../../../../variables.module.scss" as vars;
+@use "~@styles/_functions.module.scss" as fns;
 @use "sass:color";
 
 .button {
 	width: clamp(25px, 2.6vw, 50px);
 	aspect-ratio: 1;
 	border-radius: 50%;
-	border: 1px solid color.adjust(vars.$black-blue, $alpha: -0.5);
+	border: 1px solid color.adjust(fns.color('black-blue'), $alpha: -0.5);
 	background-color: transparent;
 	display: grid;
 	place-items: center;
@@ -15,7 +15,7 @@
 		height: clamp(8px, 0.83vw, 16px);
 
 		& path {
-			stroke: vars.$black-blue;
+			stroke: fns.color('black-blue');
 		}
 	}
 

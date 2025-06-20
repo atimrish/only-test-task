@@ -1,0 +1,10 @@
+@use "~@styles/_variables.module.scss" as vars;
+@use "sass:map";
+
+@function color($key) {
+    @return map.get(vars.$colors, $key)
+};
+
+@function font($key) {
+    @return map.get(vars.$fonts, $key)
+}

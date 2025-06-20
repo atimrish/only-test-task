@@ -1,4 +1,5 @@
-@use "../../../../variables.module.scss" as vars;
+@use "~@styles/_mixins.module.scss" as mixins;
+@use "~@styles/_functions.module.scss" as fns;
 
 .hr {
 	color: #c7cdd9;
@@ -7,8 +8,8 @@
 }
 
 .year {
-	font-family: vars.$bebas-neue-regular-font, sans-serif;
-	color: vars.$blue;
+	font-family: fns.font("bebas-neue-regular"), sans-serif;
+	color: fns.color("blue");
 	font-size: clamp(16px, 1.3vw, 25px);
 	font-weight: 400;
 	text-transform: uppercase;
@@ -17,11 +18,11 @@
 }
 
 .paragraph {
-	font-family: vars.$pt-sans-regular-font, sans-serif;
+	font-family: fns.font("pt-sans-regular"), sans-serif;
 	font-weight: 400;
 	font-size: clamp(14px, 1.1vw, 20px);
 	line-height: 145%;
-	color: vars.$black-blue;
+	color: fns.color("black-blue");
 }
 
 .nested {
@@ -44,7 +45,7 @@
 			right: 20px;
 		}
 
-		@media screen and (min-width: vars.$break-point-desktop) {
+		@include mixins.respond-to("desktop") {
 			& {
 				display: block;
 			}
@@ -57,17 +58,17 @@
 }
 
 .heading {
-	font-family: vars.$pt-sans-bold-font, sans-serif;
+	font-family: fns.font("pt-sans-bold"), sans-serif;
 	font-weight: 700;
 	font-size: clamp(20px, 6vw, 56px);
 	line-height: 120%;
-	color: vars.$black-blue;
+	color: fns.color("black-blue");
 	width: clamp(123px, 25vw, 360px);
 	margin-bottom: 20px;
 	white-space: nowrap;
 }
 
-@media screen and (min-width: vars.$break-point-desktop) {
+@include mixins.respond-to("desktop") {
 	.heading {
 		display: none;
 	}

@@ -1,0 +1,13 @@
+@use "~@styles/_variables.module.scss" as vars;
+@use "sass:map";
+
+@mixin respond-to($breakpoint) {
+  @if map.has-key(vars.$breakpoints, $breakpoint) {
+    $value: map.get(vars.$breakpoints, $breakpoint);
+    @media screen and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Неизвестный break-point `#{$breakpoint}`. Используйте: #{map.keys(vars.$breakpoints)}";
+  }
+}
